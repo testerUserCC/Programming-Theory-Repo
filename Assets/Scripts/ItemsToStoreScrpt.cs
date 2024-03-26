@@ -6,13 +6,10 @@ using UnityEngine;
 
 public class ItemsToStoreScrpt : MonoBehaviour
 {
-    public static ItemsToStoreScrpt Instance;
-    //To display the name on
-    public TextMeshProUGUI nameKeeper;
-    //the string to save the name temporarily 
-    public string playerName;
-    // check if the instance is there
-    private void Awake()
+    public static ItemsToStoreScrpt Instance;   // Create an Instance to ItemsToStoreScrpt
+    public TextMeshProUGUI nameKeeper;          // To use it to display the name on
+    public string playerName;                   // The string to save the name temporarily 
+    private void Awake()                        // Check if the instance is there
     {
         if (Instance != null)
         {
@@ -28,9 +25,13 @@ public class ItemsToStoreScrpt : MonoBehaviour
     {
         public string ThePlayerName;
     }
-    // this save the player name during session
-    public void SavePlayerName(string pName)
+    public void SavePlayerName(string pName)    // This save the player name during session
     {
         playerName = pName;
+    }
+    public void FillTheName()                   // Set playerName input to the TextMeshProUGUI named HeaderTxt
+    {
+        nameKeeper = GameObject.Find("Canvas").transform.Find("HeaderTxt").GetComponent<TextMeshProUGUI>();
+        nameKeeper.SetText($"{playerName}. Choose");
     }
 }
