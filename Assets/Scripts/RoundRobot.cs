@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class RoundRobot : MonoBehaviour
+public class RoundRobot : RobotsScrpt
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected bool resFire = true;
+    protected bool resMelee = false;
+    protected bool resEnergy = false;
 
-    // Update is called once per frame
-    void Update()
+    override public void GetName(string ChosenRobostr)
     {
-        
+        EffectedRobo = this.gameObject.name;
+        Hitted(ChosenRobostr, resFire, resMelee, resEnergy);
     }
 }

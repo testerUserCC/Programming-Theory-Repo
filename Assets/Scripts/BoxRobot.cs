@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class BoxRobot : MonoBehaviour
+public class BoxRobot : RobotsScrpt
 {
-    // Start is called before the first frame update
-    void Start()
+     protected bool resFire = false;
+     protected bool resMelee = true;
+     protected bool resEnergy = false;
+    override public void GetName(string ChosenRobostr)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        EffectedRobo = this.gameObject.name;
+        Hitted(ChosenRobostr, resFire, resMelee, resEnergy);
     }
 }
